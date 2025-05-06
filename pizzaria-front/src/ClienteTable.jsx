@@ -5,7 +5,7 @@ export function ClienteTable() {
   const [clientes, setClientes] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:8080/clientes', {
+    fetch('http://localhost:8080/clientes/', {
     method: 'GET'
     })
       .then(res => res.json())

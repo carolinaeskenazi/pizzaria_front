@@ -24,6 +24,7 @@ export function ClienteForm() {
 
   const cadastrar = () => {
     const cliente = { nome, cpf, telefone, endereco }
+    console.log(cliente) 
 
     fetch('http://localhost:8080/clientes', {
       method: 'POST',

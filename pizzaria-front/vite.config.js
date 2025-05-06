@@ -9,6 +9,4 @@ export default defineConfig({
       '/pizzaria': 'http://localhost:8080'
     }
   }
-  }
-  
-)
+})
