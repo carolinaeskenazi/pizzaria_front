@@ -28,7 +28,7 @@ export function PizzaForm() {
     const pizza = {
       sabor,
       preco: parseFloat(preco),
-      ingredientes: ingredientes.split(",").map(i => i.trim())
+      ingredientes: ingredientes
     }
 
     fetch('http://localhost:8080/pizza', {
@@ -40,7 +40,7 @@ export function PizzaForm() {
         if (!response.ok) throw new Error("Erro ao salvar pizza")
         return response.json()
       })
-      .then(() => navigate('/listarPizzas'))
+      .then(() => navigate('/cadastrarPizzas'))
       .catch(() => {
         setMessage("Erro ao cadastrar pizza")
         setOpenSnackbar(true)
@@ -64,22 +64,14 @@ export function PizzaForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
-      <Grid container spacing={2} padding={2} className="pizza-form-container">
+      <Grid container spacing={2} padding={5} className="pizza-form-container">
         <Grid item xs={6}>
           <TextField fullWidth variant="outlined" label="Sabor" value={sabor} onChange={e => setSabor(e.target.value)} />
         </Grid>
         <Grid item xs={6}>
           <TextField fullWidth variant="outlined" label="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            label="Ingredientes (separados por vírgula)"
-            value={ingredientes}
-            onChange={e => setIngredientes(e.target.value)}
-          />
-        </Grid>
+  
         <Grid size={12} item xs={12}>
           <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
         </Grid>

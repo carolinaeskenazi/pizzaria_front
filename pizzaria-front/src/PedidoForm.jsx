@@ -25,7 +25,7 @@ export function PedidoForm() {
       cliente: {
         id: parseInt(cliente)
       },
-      cozinha
+      
     }
 
     fetch('http://localhost:8080/pedido', {
@@ -61,12 +61,9 @@ export function PedidoForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
       <div className="form-container">
-        <Grid container spacing={4} padding={2}>
+        <Grid container spacing={4} padding={0}>
           <Grid size={6} item xs={6}>
             <TextField fullWidth variant="outlined" label="ID do Cliente" type="number" value={cliente} onChange={e => setCliente(e.target.value)} />
-          </Grid>
-          <Grid size={6} item xs={6}>
-            <TextField fullWidth variant="outlined" label="Cozinha" value={cozinha} onChange={e => setCozinha(e.target.value)} />
           </Grid>
           <Grid size={12} item xs={12}>
             <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
