@@ -37,6 +37,7 @@ function App() {
 
           <Route path="/cadastrarPedido" element={<PedidoForm />} />
           <Route path="/listarPedidos" element={<PedidoTable />} />
+          
 
           {/* Rota padrão (opcional) */}
           <Route path="/" element={<h1>Bem-vindo ao Sistema de Pizzaria</h1>} />
