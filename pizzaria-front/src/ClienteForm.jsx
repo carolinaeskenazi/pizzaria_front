@@ -1,3 +1,5 @@
+import './ClienteForm.css'
+
 import { useState } from "react"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
@@ -59,23 +61,25 @@ export function ClienteForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
-      <Grid container spacing={2} padding={2}>
-        <Grid item xs={6}>
+      <Grid container spacing={4} padding={4} className="form-container">
+        <Grid item xs={12} sm={6}>
           <TextField fullWidth variant="outlined" label="Nome" value={nome} onChange={e => setNome(e.target.value)} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <TextField fullWidth variant="outlined" label="CPF" value={cpf} onChange={e => setCpf(e.target.value)} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <TextField fullWidth variant="outlined" label="Telefone" value={telefone} onChange={e => setTelefone(e.target.value)} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <TextField fullWidth variant="outlined" label="Endereço" value={endereco} onChange={e => setEndereco(e.target.value)} />
         </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
+        <Grid size={6.5} item xs={12} style={{ textAlign: 'right' }}>
+          <Button variant="contained" onClick={handleClickOpen}>CADASTRAR</Button>
         </Grid>
       </Grid>
+
+
     </>
   )
 }
