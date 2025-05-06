@@ -1,3 +1,5 @@
+import './EntregaForm.css'
+
 import { useState, useEffect } from "react"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField, MenuItem } from "@mui/material"
 import { useNavigate } from "react-router-dom"
@@ -72,7 +74,7 @@ export function EntregaForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
-      <Grid container spacing={2} padding={2}>
+      <Grid container spacing={2} padding={5} className="entrega-form-container">
         <Grid item xs={6}>
           <TextField
             fullWidth
@@ -92,7 +94,7 @@ export function EntregaForm() {
             onChange={e => setStatus(e.target.value)}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={3} item xs={6}>
           <TextField
             select
             fullWidth
@@ -106,7 +108,7 @@ export function EntregaForm() {
             ))}
           </TextField>
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={12} item xs={12}>
           <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
         </Grid>
       </Grid>

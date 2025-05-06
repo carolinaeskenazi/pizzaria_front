@@ -64,7 +64,7 @@ export function PizzaForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
-      <Grid container spacing={2} padding={2} className="pizza-form-container">
+      <Grid container spacing={2} padding={5} className="pizza-form-container">
         <Grid item xs={6}>
           <TextField fullWidth variant="outlined" label="Sabor" value={sabor} onChange={e => setSabor(e.target.value)} />
         </Grid>
