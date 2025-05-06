@@ -11,6 +11,9 @@ function App() {
   return (
     <>
       <div className="App">
+        {/* TÍTULO NO TOPO */}
+        <h1 className="titulo-principal">Bem-vindo ao Sistema de Pizzaria</h1>
+
         <nav>
           <h2>Clientes</h2>
           <Link to="/cadastrarCliente">Cadastrar Cliente</Link>
@@ -20,27 +23,19 @@ function App() {
           <Link to="/listarPedidos">Listar Pedidos</Link>
           <Link to="/cadastrarPedido">Cadastrar Pedido</Link>
 
-          
           <h2>Pizzas</h2>
           <Link to="/cadastrarPizza">Cadastrar Pizza</Link>
           <Link to="/listarPizzas">Listar Pizzas</Link>
         </nav>
 
         <Routes>
-          {/* Rotas de Cliente */}
+          <Route path="/" element={<div />} />
           <Route path="/cadastrarCliente" element={<ClienteForm />} />
           <Route path="/listarClientes" element={<ClienteTable />} />
-          
-          {/* Rotas de Pizza */}
           <Route path="/cadastrarPizza" element={<PizzaForm />} />
           <Route path="/listarPizzas" element={<PizzaTable />} />
-
           <Route path="/cadastrarPedido" element={<PedidoForm />} />
           <Route path="/listarPedidos" element={<PedidoTable />} />
-          
-
-          {/* Rota padrão (opcional) */}
-          <Route path="/" element={<h1>Bem-vindo ao Sistema de Pizzaria</h1>} />
         </Routes>
       </div>
     </>

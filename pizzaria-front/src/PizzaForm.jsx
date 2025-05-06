@@ -1,3 +1,6 @@
+import './PizzaForm.css'
+
+
 import { useState } from "react"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
@@ -61,7 +64,7 @@ export function PizzaForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
-      <Grid container spacing={2} padding={2}>
+      <Grid container spacing={2} padding={2} className="pizza-form-container">
         <Grid item xs={6}>
           <TextField fullWidth variant="outlined" label="Sabor" value={sabor} onChange={e => setSabor(e.target.value)} />
         </Grid>
@@ -77,7 +80,7 @@ export function PizzaForm() {
             onChange={e => setIngredientes(e.target.value)}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={12} item xs={12}>
           <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
         </Grid>
       </Grid>
