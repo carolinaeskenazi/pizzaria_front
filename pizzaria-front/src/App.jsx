@@ -41,8 +41,7 @@ function App() {
           <Route path="/listarPizzas" element={<PizzaTable />} />
           <Route path="/cadastrarPedido" element={<PedidoForm />} />
           <Route path="/listarPedidos" element={<PedidoTable />} />
-          <Route path="/cadastrarEntrega" element={<EntregaForm />} />
-          <Route path="/listarEntregas" element={<EntregaTable />} />
+          
         </Routes>
       </div>
     </>
