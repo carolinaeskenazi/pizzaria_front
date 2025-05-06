@@ -61,7 +61,7 @@ export function ClienteForm() {
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
-      <Grid container spacing={4} padding={4} className="form-container">
+      <Grid container spacing={4} padding={5} className="form-container">
         <Grid item xs={12} sm={6}>
           <TextField fullWidth variant="outlined" label="Nome" value={nome} onChange={e => setNome(e.target.value)} />
         </Grid>
