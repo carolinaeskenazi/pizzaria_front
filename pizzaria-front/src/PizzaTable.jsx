@@ -25,9 +25,8 @@ export function PizzaTable() {
 
   const columns = [
     { field: 'sabor', headerName: 'Sabor', width: 200 },
-    { field: 'preco', headerName: 'Preço', width: 130 },
-    { field: 'ingredientes', headerName: 'Ingredientes', width: 400, valueGetter: (params) => params.row.ingredientes?.join(", ") }
-  ]
+    { field: 'preco', headerName: 'Preço', width: 130 }]
+    
 
   return (
     <div style={{ height: 400, width: '100%' }}>

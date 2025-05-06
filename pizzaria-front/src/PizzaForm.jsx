@@ -28,7 +28,7 @@ export function PizzaForm() {
     const pizza = {
       sabor,
       preco: parseFloat(preco),
-      ingredientes: ingredientes.split(",").map(i => i.trim())
+      ingredientes: ingredientes
     }
 
     fetch('http://localhost:8080/pizza', {
@@ -40,7 +40,7 @@ export function PizzaForm() {
         if (!response.ok) throw new Error("Erro ao salvar pizza")
         return response.json()
       })
-      .then(() => navigate('/listarPizzas'))
+      .then(() => navigate('/cadastrarPizzas'))
       .catch(() => {
         setMessage("Erro ao cadastrar pizza")
         setOpenSnackbar(true)
