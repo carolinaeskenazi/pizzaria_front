@@ -28,23 +28,7 @@ body {
     align-items: center;
   }
   
-  /* Botão de cadastro */
-  .pizza-form-container .MuiButton-contained {
-    background-color: #c62828;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 12px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Hover no botão */
-  .pizza-form-container .MuiButton-contained:hover {
-    background-color: #a4161a;
-  }
-  
+
   /* Diálogo de confirmação */
   .MuiDialog-paper {
     border-radius: 12px;

@@ -60,18 +60,19 @@ export function PedidoForm() {
       </Dialog>
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
-
-      <Grid container spacing={2} padding={2}>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="ID do Cliente" type="number" value={cliente} onChange={e => setCliente(e.target.value)} />
+      <div className="form-container">
+        <Grid container spacing={4} padding={2}>
+          <Grid size={6} item xs={6}>
+            <TextField fullWidth variant="outlined" label="ID do Cliente" type="number" value={cliente} onChange={e => setCliente(e.target.value)} />
+          </Grid>
+          <Grid size={6} item xs={6}>
+            <TextField fullWidth variant="outlined" label="Cozinha" value={cozinha} onChange={e => setCozinha(e.target.value)} />
+          </Grid>
+          <Grid size={12} item xs={12}>
+            <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="Cozinha" value={cozinha} onChange={e => setCozinha(e.target.value)} />
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
-        </Grid>
-      </Grid>
+      </div>
     </>
   )
 }
