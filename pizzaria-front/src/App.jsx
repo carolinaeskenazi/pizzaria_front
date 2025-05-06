@@ -3,8 +3,8 @@ import { ClienteForm } from './ClienteForm'
 import { ClienteTable } from './ClienteTable'
 import { PizzaForm } from './PizzaForm'
 import { PizzaTable } from './PizzaTable'
-import { PedidoForm } from './PedidoForm'
-import { PedidoTable } from './PedidoTable'
+import { PagamentoTable } from './PagamentoTable'
+import { PagamentoForm } from './PagamentoForm'
 
 import './App.css'
 
@@ -20,17 +20,15 @@ function App() {
           <Link to="/cadastrarCliente">Cadastrar Cliente</Link>
           <Link to="/listarClientes">Listar Clientes</Link>
 
-          <h2>Pedidos</h2>
-          <Link to="/cadastrarPedido">Cadastrar Pedido</Link>
-          <Link to="/listarPedidos">Listar Pedidos</Link>
         
           <h2>Pizzas</h2>
           <Link to="/cadastrarPizza">Cadastrar Pizza</Link>
           <Link to="/listarPizzas">Listar Pizzas</Link>
 
-          <h2>Entregas</h2>
-          <Link to="/cadastrarEntrega">Cadastrar Entrega</Link>
-          <Link to="/listarEntregas">Listar Entregas</Link>
+          <h2>Pagamentos</h2>
+          <Link to="/cadastrarPagamentos">Cadastrar Pagamentos</Link>
+          <Link to="/listarPagamentos">Listar Pagamentos</Link>
+
         </nav>
 
         <Routes>
@@ -39,8 +37,9 @@ function App() {
           <Route path="/listarClientes" element={<ClienteTable />} />
           <Route path="/cadastrarPizza" element={<PizzaForm />} />
           <Route path="/listarPizzas" element={<PizzaTable />} />
-          <Route path="/cadastrarPedido" element={<PedidoForm />} />
-          <Route path="/listarPedidos" element={<PedidoTable />} />
+          <Route path="/listarPagamentos" element={<PagamentoTable />} />
+          <Route path="/cadastrarPagamentos" element={<PagamentoForm />} />
+
           
         </Routes>
       </div>
