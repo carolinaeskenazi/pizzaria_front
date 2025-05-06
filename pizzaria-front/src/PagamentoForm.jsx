@@ -40,7 +40,7 @@ export function PagamentoForm() {
         if (!response.ok) throw new Error("Erro ao salvar pagamento")
         return response.json()
       })
-      .then(() => navigate("/listarPagamentos"))
+      .then(() => navigate("/cadastrarPagamentos"))
       .catch(() => {
         setMessage("Erro ao cadastrar pagamento")
         setOpenSnackbar(true)
