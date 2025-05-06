@@ -27,7 +27,7 @@ export function PedidoTable() {
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'clienteId', headerName: 'ID do Cliente', width: 150 },
-    { field: 'cozinha', headerName: 'Cozinha', width: 300 }
+    
   ]
 
   return (

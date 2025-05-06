@@ -71,15 +71,7 @@ export function PizzaForm() {
         <Grid item xs={6}>
           <TextField fullWidth variant="outlined" label="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            label="Ingredientes (separados por vírgula)"
-            value={ingredientes}
-            onChange={e => setIngredientes(e.target.value)}
-          />
-        </Grid>
+  
         <Grid size={12} item xs={12}>
           <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
         </Grid>

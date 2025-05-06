@@ -5,8 +5,7 @@ import { PizzaForm } from './PizzaForm'
 import { PizzaTable } from './PizzaTable'
 import { PedidoForm } from './PedidoForm'
 import { PedidoTable } from './PedidoTable'
-import { EntregaForm } from './EntregaForm'
-import { EntregaTable } from './EntregaTable'
+
 import './App.css'
 
 function App() {
