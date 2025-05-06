@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react"
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField, MenuItem } from "@mui/material"
+import { useState } from "react"
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
 export function PedidoForm() {
-  const [clienteId, setClienteId] = useState("")
-  const [clientes, setClientes] = useState([])
+  const [cliente, setCliente] = useState("")
+  const [cozinha, setCozinha] = useState("")
 
   const [openDialog, setOpenDialog] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
@@ -12,20 +12,20 @@ export function PedidoForm() {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    fetch("http://localhost:8080/clientes")
-      .then((res) => res.json())
-      .then((data) => setClientes(data))
-      .catch(() => setMessage("Erro ao carregar clientes"))
-  }, [])
-
   const handleClickOpen = () => setOpenDialog(true)
   const handleCloseDialog = () => setOpenDialog(false)
-  const handleCloseSnackbar = () => setOpenSnackbar(false)
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') return
+    setOpenSnackbar(false)
+  }
 
   const cadastrar = () => {
     const pedido = {
-      cliente: { id: parseInt(clienteId) }
+      cliente: {
+        id: parseInt(cliente)
+      },
+      cozinha
     }
 
     fetch('http://localhost:8080/pedido', {
@@ -33,11 +33,11 @@ export function PedidoForm() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(pedido)
     })
-      .then(res => {
-        if (!res.ok) throw new Error("Erro ao salvar pedido")
-        return res.text()
+      .then(response => {
+        if (!response.ok) throw new Error("Erro ao salvar pedido")
+        return response.json()
       })
-      .then(() => navigate("/listarPedidos"))
+      .then(() => navigate('/listarPedidos'))
       .catch(() => {
         setMessage("Erro ao cadastrar pedido")
         setOpenSnackbar(true)
@@ -62,21 +62,14 @@ export function PedidoForm() {
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
 
       <Grid container spacing={2} padding={2}>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            select
-            label="Cliente"
-            value={clienteId}
-            onChange={(e) => setClienteId(e.target.value)}
-          >
-            {clientes.map((c) => (
-              <MenuItem key={c.id} value={c.id}>{c.nome}</MenuItem>
-            ))}
-          </TextField>
+        <Grid item xs={6}>
+          <TextField fullWidth variant="outlined" label="ID do Cliente" type="number" value={cliente} onChange={e => setCliente(e.target.value)} />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField fullWidth variant="outlined" label="Cozinha" value={cozinha} onChange={e => setCozinha(e.target.value)} />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" onClick={handleClickOpen}>Cadastrar Pedido</Button>
+          <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
         </Grid>
       </Grid>
     </>
