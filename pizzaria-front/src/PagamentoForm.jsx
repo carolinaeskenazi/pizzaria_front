@@ -1,3 +1,6 @@
+import './PagamentoForm.css'
+
+
 import { useState } from "react"
 import {
   Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
@@ -63,23 +66,24 @@ export function PagamentoForm() {
       </Dialog>
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
-
-      <Grid container spacing={2} padding={2}>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="ID" value={id} onChange={e => setId(e.target.value)} />
+      <div className="pagamento-form-container">
+        <Grid container spacing={4} padding={2}>
+          <Grid size={6} item xs={6}>
+            <TextField fullWidth variant="outlined" label="ID" value={id} onChange={e => setId(e.target.value)} />
+          </Grid>
+          <Grid size={6} item xs={6}>
+            <TextField fullWidth variant="outlined" label="Valor" type="number" value={valor} onChange={e => setValor(e.target.value)} />
+          </Grid>
+          <Grid size={6} item xs={12}>
+            <Button variant="contained" onClick={() => setPago(!pago)}>
+              {pago ? "Marcado como Pago" : "Marcar como Pago"}
+            </Button>
+          </Grid>
+          <Grid size={6} item xs={12}>
+            <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="Valor" type="number" value={valor} onChange={e => setValor(e.target.value)} />
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" onClick={() => setPago(!pago)}>
-            {pago ? "Marcado como Pago" : "Marcar como Pago"}
-          </Button>
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
-        </Grid>
-      </Grid>
+      </div>
     </>
   )
 }

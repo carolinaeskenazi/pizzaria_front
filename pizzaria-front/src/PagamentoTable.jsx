@@ -30,7 +30,6 @@ export function PagamentoTable() {
       field: "pago",
       headerName: "Pago",
       width: 130,
-      valueGetter: (params) => params.row.pago ? "Sim" : "Não"
     }
   ]
 

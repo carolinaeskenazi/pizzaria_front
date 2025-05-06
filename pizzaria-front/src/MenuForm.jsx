@@ -1,3 +1,5 @@
+import './MenuForm.css'
+
 import { useState } from "react"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
@@ -61,27 +63,28 @@ export function MenuForm() {
       </Dialog>
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
-
-      <Grid container spacing={2} padding={2}>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="Nome" value={nome} onChange={e => setNome(e.target.value)} />
+      <div className="menu-form-container">
+        <Grid container spacing={4} padding={1}>
+          <Grid item xs={6}>
+            <TextField fullWidth variant="outlined" label="Nome" value={nome} onChange={e => setNome(e.target.value)} />
+          </Grid>
+          <Grid size ={4}item xs={6}>
+            <TextField fullWidth variant="outlined" label="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
+          </Grid>
+          <Grid size={4 } item xs={12}>
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Tipo (bebida ou acompanhamento)"
+              value={tipo}
+              onChange={e => setTipo(e.target.value)}
+            />
+          </Grid>
+          <Grid size ={12} item xs={12}>
+            <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="Preço" type="number" value={preco} onChange={e => setPreco(e.target.value)} />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            label="Tipo (bebida ou acompanhamento)"
-            value={tipo}
-            onChange={e => setTipo(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
-        </Grid>
-      </Grid>
+        </div>
     </>
   )
 }
