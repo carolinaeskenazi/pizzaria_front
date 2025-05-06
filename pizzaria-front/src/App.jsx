@@ -3,6 +3,8 @@ import { ClienteForm } from './ClienteForm'
 import { ClienteTable } from './ClienteTable'
 import { PizzaForm } from './PizzaForm'
 import { PizzaTable } from './PizzaTable'
+import { PedidoForm } from './PedidoForm'
+import { PedidoTable } from './PedidoTable'
 import './App.css'
 
 function App() {
@@ -13,6 +15,11 @@ function App() {
           <h2>Clientes</h2>
           <Link to="/cadastrarCliente">Cadastrar Cliente</Link>
           <Link to="/listarClientes">Listar Clientes</Link>
+
+          <h2>Pedidos</h2>
+          <Link to="/listarPedidos">Listar Pedidos</Link>
+          <Link to="/cadastrarPedido">Cadastrar Pedido</Link>
+
           
           <h2>Pizzas</h2>
           <Link to="/cadastrarPizza">Cadastrar Pizza</Link>
@@ -27,6 +34,9 @@ function App() {
           {/* Rotas de Pizza */}
           <Route path="/cadastrarPizza" element={<PizzaForm />} />
           <Route path="/listarPizzas" element={<PizzaTable />} />
+
+          <Route path="/cadastrarPedido" element={<PedidoForm />} />
+          <Route path="/listarPedidos" element={<PedidoTable />} />
 
           {/* Rota padrão (opcional) */}
           <Route path="/" element={<h1>Bem-vindo ao Sistema de Pizzaria</h1>} />
