@@ -1,0 +1,60 @@
+/* Fundo geral */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Container do formulário */
+  .pagamento-form-container {
+    background-color: #fffaf0; /* Creme claro */
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 900px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Campos de texto */
+  .MuiTextField-root {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo interno dos inputs */
+  .MuiInputBase-root {
+    font-size: 16px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Botões do formulário */
+  .pagamento-form-container .MuiButton-contained {
+    background-color: #2e7d32; /* Verde padrão */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  /* Hover dos botões */
+  .pagamento-form-container .MuiButton-contained:hover {
+    background-color: #1b5e20; /* Verde escuro */
+  }
+  
+  /* Diálogo de confirmação */
+  .MuiDialog-paper {
+    border-radius: 12px;
+  }
+  
+  /* Snackbar */
+  .MuiSnackbar-root {
+    bottom: 24px;
+  }
+  
