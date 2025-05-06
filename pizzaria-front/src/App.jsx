@@ -5,6 +5,8 @@ import { PizzaForm } from './PizzaForm'
 import { PizzaTable } from './PizzaTable'
 import { PagamentoTable } from './PagamentoTable'
 import { PagamentoForm } from './PagamentoForm'
+import { MenuTable } from './MenuTable'
+import { MenuForm } from './MenuForm'
 
 import './App.css'
 
@@ -29,6 +31,11 @@ function App() {
           <Link to="/cadastrarPagamentos">Cadastrar Pagamentos</Link>
           <Link to="/listarPagamentos">Listar Pagamentos</Link>
 
+          <h2>Menu</h2>
+          <Link to="/cadastrarMenu">Cadastrar Menu</Link>
+          <Link to="/listarMenu">Listar Menu</Link>
+
+
         </nav>
 
         <Routes>
@@ -39,6 +46,8 @@ function App() {
           <Route path="/listarPizzas" element={<PizzaTable />} />
           <Route path="/listarPagamentos" element={<PagamentoTable />} />
           <Route path="/cadastrarPagamentos" element={<PagamentoForm />} />
+          <Route path="/listarMenu" element={<MenuTable />} />
+          <Route path="/cadastrarMenu" element={<MenuForm />} />
 
           
         </Routes>
