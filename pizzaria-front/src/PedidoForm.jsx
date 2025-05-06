@@ -2,10 +2,9 @@ import { useState } from "react"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, Snackbar, TextField } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
-export function EntregaForm() {
-  const [nome, setNome] = useState("")
-  const [telefone, setTelefone] = useState("")
-  const [veiculo, setVeiculo] = useState("")
+export function PedidoForm() {
+  const [cliente, setCliente] = useState("")
+  const [cozinha, setCozinha] = useState("")
 
   const [openDialog, setOpenDialog] = useState(false)
   const [openSnackbar, setOpenSnackbar] = useState(false)
@@ -22,24 +21,25 @@ export function EntregaForm() {
   }
 
   const cadastrar = () => {
-    const entregador = {
-      nome,
-      telefone,
-      veiculo
+    const pedido = {
+      cliente: {
+        id: parseInt(cliente)
+      },
+      cozinha
     }
 
-    fetch('http://localhost:8080/entregador', {
+    fetch('http://localhost:8080/pedido', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(entregador)
+      body: JSON.stringify(pedido)
     })
       .then(response => {
-        if (!response.ok) throw new Error("Erro ao salvar entregador")
+        if (!response.ok) throw new Error("Erro ao salvar pedido")
         return response.json()
       })
-      .then(() => navigate('/listarEntregas'))
+      .then(() => navigate('/listarPedidos'))
       .catch(() => {
-        setMessage("Erro ao cadastrar entregador")
+        setMessage("Erro ao cadastrar pedido")
         setOpenSnackbar(true)
       })
 
@@ -49,9 +49,9 @@ export function EntregaForm() {
   return (
     <>
       <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>Cadastro de Entregador</DialogTitle>
+        <DialogTitle>Cadastro de Pedido</DialogTitle>
         <DialogContent>
-          <DialogContentText>Deseja confirmar o cadastro do entregador?</DialogContentText>
+          <DialogContentText>Deseja confirmar o cadastro do pedido?</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Cancelar</Button>
@@ -60,21 +60,19 @@ export function EntregaForm() {
       </Dialog>
 
       <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar} message={message} />
-
-      <Grid container spacing={2} padding={2}>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="Nome" value={nome} onChange={e => setNome(e.target.value)} />
+      <div className="form-container">
+        <Grid container spacing={4} padding={2}>
+          <Grid size={6} item xs={6}>
+            <TextField fullWidth variant="outlined" label="ID do Cliente" type="number" value={cliente} onChange={e => setCliente(e.target.value)} />
+          </Grid>
+          <Grid size={6} item xs={6}>
+            <TextField fullWidth variant="outlined" label="Cozinha" value={cozinha} onChange={e => setCozinha(e.target.value)} />
+          </Grid>
+          <Grid size={12} item xs={12}>
+            <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <TextField fullWidth variant="outlined" label="Telefone" value={telefone} onChange={e => setTelefone(e.target.value)} />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField fullWidth variant="outlined" label="Veículo" value={veiculo} onChange={e => setVeiculo(e.target.value)} />
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" onClick={handleClickOpen}>Cadastrar</Button>
-        </Grid>
-      </Grid>
+      </div>
     </>
   )
 }
